@@ -1,0 +1,30 @@
+/* pages/wxchart/wxchart.wxss */
+page{
+  background:linear-gradient(180deg,rgba(0,162,209,1) 0%,rgba(110,227,255,1) 100%);
+}
+.columnCanvas_w{
+  width: 100%;
+  margin: 0 auto;
+  border: 1rpx solid red;
+  color: #f00
+}
+.column{
+}
+.water{
+  font-size: 18rpx; 
+  color: #fff;
+  margin:20rpx 0 0 330rpx;
+}
+.y_data{
+  height: 550rpx;
+  position: relative;
+  top: 20rpx;
+  left: 20rpx;
+}
+.canvas {
+  width:100%;
+  margin: 0 auto;
+  height: 1000rpx;
+  margin-top: 30rpx;
+  color:#f00;
+}

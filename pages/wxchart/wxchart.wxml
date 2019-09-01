@@ -1,0 +1,9 @@
+<!--pages/wxchart/wxchart.wxml-->
+<!-- <text>pages/wxchart/wxchart.wxml</text> -->
+<view class='column'>
+  <text class='water'>上周净水量</text>
+  <view class='columnCanvas_w'>
+    <canvas canvas-id="columnCanvas" disable-scroll="true" class="canvas"></canvas>
+  </view>
+  <view class='y_data'></view>
+</view>
