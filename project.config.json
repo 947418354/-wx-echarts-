@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.0.0",
 	"appid": "wxbb79f2f8d15679d3",
-	"projectname": "echarts-for-weixin-master",
+	"projectname": "my-wx-echarts",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
