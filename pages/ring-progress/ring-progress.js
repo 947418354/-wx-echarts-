@@ -6,9 +6,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    value: 15,
+    echartsPointer: null
   },
 
+  handleAddClick() {
+    this.data.value += 5
+    let opts = {
+      canvasId: 'canvas1',
+      type: 'ring-progress',
+      value: this.data.value,
+      dataLabel: true,
+      width: 312, //图表展示内容宽度
+      height: 300, //图表展示内容高度
+    }
+    this.echartsPointer = new Eharts(opts)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -22,7 +35,7 @@ Page({
         name: '图表标题',
         fontSize: 20
       },
-      value: 19,
+      value: this.data.value,
       dataLabel: true,
       categories: ['1', '2', '3', '4', '5', '6', '7'],
       series: [{

@@ -27,19 +27,6 @@ var config = {
 };
 
 function drawYAxisGrid(opts, config, context) {
- 
-  context.beginPath()
-  context.setLineWidth(5)
-  context.setStrokeStyle('#666')
-  context.fillStyle = '#0f0'
-  context.fillText('这个是测试文字',20,20)
-  context.moveTo(100,100)
-  context.lineTo(200,200)
-  context.arc(100,100,50,0,2)
-  context.closePath();
-  context.stroke()
-  context.strokeRect(0,0,100,100)
-  console.log('华完毕')
 }
 
 function drawCharts(type, opts, config, context) {
@@ -55,23 +42,33 @@ function drawCharts(type, opts, config, context) {
   context.stroke()
   context.beginPath()
   context.setStrokeStyle('#f00')
-  context.arc(cwidth, cheight, 50, Math.PI * 1.5 - value / 100 * Math.PI * 2, Math.PI * 1.5)
-  context.stroke()
+  
   context.fillTextStyle = '#f00'
   context.setFontSize(16)
   // 设置文本对齐为水平垂直居中
   context.textAlign = 'center'
   context.textBaseline = "middle"
   context.fillText(value+'%',cwidth,cheight)
-
-  context.draw(false)
+  context.draw()
+  let step = value / 100 * Math.PI * 2/10
+  let n = 1
+  let inter = setInterval(()=>{
+    context.beginPath()
+    context.arc(cwidth, cheight, 50, Math.PI * 1.5 - step*n, Math.PI * 1.5)
+    context.setStrokeStyle('#f00')
+    context.stroke()
+    context.draw(true)
+    n+=1
+    if (n === 11) clearInterval(inter)
+  },500)
+  
   var _this = this;
 
   var series = opts.series;
   var categories = opts.categories;
 
   var duration = opts.animation ? 1000 : 0;
-  this.animationInstance && this.animationInstance.stop();
+  // this.animationInstance && this.animationInstance.stop();
   switch (type) {
     case 'ring-progress':
       drawYAxisGrid(opts, config, context);
@@ -139,7 +136,6 @@ Event.prototype.trigger = function () {
   for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
     args[_key] = arguments[_key];
   }
-
   var type = args[0];
   var params = args.slice(1);
   if (!!this.events[type]) {
